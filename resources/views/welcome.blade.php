@@ -84,16 +84,46 @@
                 <div class="table">
                     @if (is_array($data))
                         @if (count($data) > 1)
-                            {{$data["request_date"]}}
-                            {{-- @foreach ($data as $item)
-                                @if (is_array($item))
-                                    @foreach ($item as $inner_data)
-                                        {{$inner_data}}    
-                                    @endforeach
-                                @else
-                                    {{$item}}
-                                @endif
-                            @endforeach --}}
+                        <table>
+                            <thead>
+                                
+                                <th>
+                                    ID
+                                </th>
+                                
+                                <th>
+                                    Payment Gateway
+                                </th>
+                                
+                                <th>
+                                    Plan
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Subscription Start Date
+                                </th>
+
+                                <th>
+                                    Subscription End Date
+                                </th>
+                            </thead>
+                            @foreach ($data as $key => $item)
+                                <tbody>
+                                    <tr>
+                                        <td>{{$item["id"]}}</td>
+                                        <td>{{$item["payment_gateway"]}}</td>
+                                        <td>{{$item["plan"]}}</td>
+                                        <td>{{$item["status"]}}</td>
+                                        <td>{{$item["subscription_start"]}}</td>
+                                        <td>{{$item["subscription_end"]}}</td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
                         @else
                             <div><h3>No Data!</h3></div>
                         @endif         
